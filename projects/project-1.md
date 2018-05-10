@@ -16,7 +16,7 @@ summary: My team developed a website that helps new students find their classes.
 
 <div class="ui small rounded images">
   <img class="ui image" src="../images/directions.png">
-  <img class="ui image" src="../images/card.jpg">
+  <img class="ui image" src="../images/card2.jpg">
 </div>
 
 For my ICS 314, Software Engineering, my group and I were given the task to create a website that helps students or UHM staff. My group and I created a website to help students find the buildings that their classes would be held. We did this by utilizing the Google Maps api and other Semantic UI features.
