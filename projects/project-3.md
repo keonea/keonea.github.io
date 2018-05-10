@@ -1,61 +1,43 @@
 ---
 layout: project
 type: project
-image: images/cotton-square.png
-title: Cotton
-permalink: projects/cotton
+image: images/output.png
+title: Sudoku Solver
+permalink: projects/sudoku
 # All dates must be YYYY-MM-DD format!
-date: 2014-04-12
+date: 2017-04-12
 labels:
-  - Lisp
-  - GitHub
-summary: A text adventure game I developed for ICS 313.
+  - Java
+summary: A sudoku solver that I created for ICS 211
 ---
 
-<img class="ui image" src="{{ site.baseurl }}/images/cotton-header.png">
+<img class="ui image" src="{{ site.baseurl }}/images/output.png">
+<img class="ui image" src="{{ site.baseurl }}/images/input.png">
 
-Cotton is a horror-esque text-based adventure game I developed using the functions and macros built from The Wizard's Game in [Conrad Barski's Land of Lisp](http://landoflisp.com/). Slightly more interesting and convoluted! (It is not that scary.)
+For my ICS 211 class I was tasked to create a working sudoku solver that would take in input from a text file and output the finished result in another text file. 
 
-To give you a flavor of the game, here is an excerpt from one run:
+Some code that shows how the code checks if the number fits.
 
-<hr>
+```java
 
-<pre>
-You open your eyes, and you are greeted by an unfamiliar ceiling.
-Startled, you get to your feet and quickly scan your surroundings. It's
-dark except for the stream of light coming from a crack on the only boarded
-window in the room. You try to peek through the crack, but you cannot see
-anything. You wonder where you are and who could have possibly brought you here.
+static boolean checkSquare(int n, int m) {
 
-<--------------------help------------------------>
-Enter quit or one of the following commands -
-Weld light look walk pickup inventory help h ?
-<------------------------------------------------>
+			//checks columns
+			for (int a = 0; a < 9; ++a)  
+			    if (k == matrix[a][m] && a!=n) return false;
+          
+			for (int a = 0; a < 9; ++a)  //checks row
+			    if (k == matrix[n][a] && a!=m) return false;
+			      int row = (n / 3)*3;
+			      int col = (m / 3)*3;
 
-look
-The room is a picture of decay with only a faded number identifying it as room-4. The bed you were
- lying on is stained with what looks like dried blood. Could it be your blood? No - it is not. The
- only way out of the room aside from the door to the corridor is a window that is boarded shut. It
- looks like it has been like that for decades. There is a door going west from here. You see a candle
- on the floor. You see a match on the floor.
+			for (int a = 0; a < 3; ++a)
+			    for (int b = 0; b < 3; ++b)
+			    //checks the square
+			    if (k == matrix[row+a][col+b] && row+a != n && row+b != m) return false;
+          
+			return true;
 
-pickup candle
-- you are now carrying the candle -
+}
 
-pickup match
-- you are now carrying the match -
-
-light match candle
-
-The candle is now lit. It illuminates everything in the room.
-
-walk west
-The corridor is lit with the candle. It is so long that you cannot see to the end. You notice that
- there are words written on the wall. There is a door going east from here. There is a way going north
- from here. There is a door going south from here.
-</pre>
-
-<hr>
-
-Source: <a href="https://github.com/jogarces/ics-313-text-game"><i class="large github icon "></i>jogarces/ics-313-text-game</a>
-
+```
