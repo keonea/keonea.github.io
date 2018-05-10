@@ -57,7 +57,7 @@ Here is some code that illustrates how we built the add card page:
     );
 ```
 
-You can learn more at the [Aumakua Website](aumakua.meteorapp.com).
+You can learn more at the [Aumakua Website](https://aumakuauh.github.io/).
 
 
 
