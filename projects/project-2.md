@@ -5,7 +5,7 @@ image: images/dot.png
 title: Dot Game
 permalink: projects/dot
 # All dates must be YYYY-MM-DD format!
-date: 2017-12-15
+date: 2016-12-15
 labels:
   - Java
 summary: A game where a dot collects apples that my team made in ICS 111.
