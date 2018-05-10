@@ -10,7 +10,7 @@ labels:
   - Software Engineering
   - ICS 314
   - Java
-  -Meteor
+  - Meteor
 summary: My team developed a website that helps new students find their classes.
 ---
 
