@@ -1,44 +1,63 @@
 ---
 layout: project
 type: project
-image: images/micromouse.jpg
-title: Micromouse
-permalink: projects/micromouse
+image: images/home.jpg
+title: Aumakua
+permalink: projects/aumakua
 # All dates must be YYYY-MM-DD format!
-date: 2015-07-01
+date: 2018-07-01
 labels:
-  - Robotics
-  - Arduino
-  - C++
-summary: My team developed a robotic mouse that won first place in the 2015 UH Micromouse competition.
+  - Software Engineering
+  - ICS 314
+  - Java
+  -Meteor
+summary: My team developed a website that helps new students find their classes.
 ---
 
 <div class="ui small rounded images">
-  <img class="ui image" src="../images/micromouse-robot.png">
-  <img class="ui image" src="../images/micromouse-robot-2.jpg">
-  <img class="ui image" src="../images/micromouse.jpg">
-  <img class="ui image" src="../images/micromouse-circuit.png">
+  <img class="ui image" src="../images/directions.png">
+  <img class="ui image" src="../images/card.jpg">
 </div>
 
-Micromouse is an event where small robot “mice” solve a 16 x 16 maze.  Events are held worldwide.  The maze is made up of a 16 by 16 gird of cells, each 180 mm square with walls 50 mm high.  The mice are completely autonomous robots that must find their way from a predetermined starting position to the central area of the maze unaided.  The mouse will need to keep track of where it is, discover walls as it explores, map out the maze and detect when it has reached the center.  having reached the center, the mouse will typically perform additional searches of the maze until it has found the most optimal route from the start to the center.  Once the most optimal route has been determined, the mouse will run that route in the shortest possible time.
+For my ICS 314, Software Engineering, my group and I were given the task to create a website that helps students or UHM staff. My group and I created a website to help students find the buildings that their classes would be held. We did this by utilizing the Google Maps api and other Semantic UI features.
 
-For this project, I was the lead programmer who was responsible for programming the various capabilities of the mouse.  I started by programming the basics, such as sensor polling and motor actuation using interrupts.  From there, I then programmed the basic PD controls for the motors of the mouse.  The PD control the drive so that the mouse would stay centered while traversing the maze and keep the mouse driving straight.  I also programmed basic algorithms used to solve the maze such as a right wall hugger and a left wall hugger algorithm.  From there I worked on a flood-fill algorithm to help the mouse track where it is in the maze, and to map the route it takes.  We finished with the fastest mouse who finished the maze within our college.
+For this project, I was tasked with helping create the search bar and add card page. We did this by using the Semantic UI feature that is both a dropdown menu and a search bar. I was solely responsible for adding all the buildings on campus to the database that stored the address, image, longitude, latitude. 
 
-Here is some code that illustrates how we read values from the line sensors:
+Here is some code that illustrates how we built the add card page:
 
 ```js
-byte ADCRead(byte ch)
-{
-    word value;
-    ADC1SC1 = ch;
-    while (ADC1SC1_COCO != 1)
-    {   // wait until ADC conversion is completed   
-    }
-    return ADC1RL;  // lower 8-bit value out of 10-bit data from the ADC
-}
+  return (
+        <Grid container centered>
+          <Grid.Column>
+            <Header as="h2" textAlign="center">Add Classes</Header>
+              <Segment>
+                <Dropdown
+                    button
+                    labeled
+                    fluid
+                    options={buildingTestArr}
+                    search
+                    selection
+                    placeholder='Select Building'
+                    onChange={this.submitBuilding}
+                />
+                <Button onClick={this.onClick}>Submit</Button>
+              </Segment>
+              <Segment>
+                <Card.Group>
+                  {this.props.buildings.map((building, index) =>
+                    <UserBuildings key={index}
+                                   building={building}
+                                   notes={this.props.notes.filter(note => (note.buildingId === building._id))}
+                    />  )}
+                </Card.Group>
+              </Segment>
+          </Grid.Column>
+        </Grid>
+    );
 ```
 
-You can learn more at the [UH Micromouse Website](http://www-ee.eng.hawaii.edu/~mmouse/about.html).
+You can learn more at the [Aumakua Website](aumakua.meteorapp.com).
 
 
 
